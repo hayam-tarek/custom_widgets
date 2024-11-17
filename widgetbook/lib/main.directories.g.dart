@@ -16,12 +16,34 @@ final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
     name: 'widgets',
     children: [
-      _i1.WidgetbookLeafComponent(
+      _i1.WidgetbookComponent(
         name: 'CustomSwitchWidget',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'Switch Widget',
-          builder: _i2.buildSwitchWidgetUseCase,
-        ),
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'danger Switch Widget',
+            builder: _i2.buildDangerSwitchWidgetUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'default Switch Widget',
+            builder: _i2.buildDefaultSwitchWidgetUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'primary Switch Widget',
+            builder: _i2.buildPrimarySwitchWidgetUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'secondary Switch Widget',
+            builder: _i2.buildSecondarySwitchWidgetUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'success Switch Widget',
+            builder: _i2.buildSuccessSwitchWidgetUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'warning Switch Widget',
+            builder: _i2.buildWarningSwitchWidgetUseCase,
+          ),
+        ],
       )
     ],
   )
