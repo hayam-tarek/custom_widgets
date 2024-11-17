@@ -3,25 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(name: 'Switch Widget', type: CustomSwitchWidget)
-Widget buildSwitchWidgetUseCase(BuildContext context) {
-  final SwitchSizes size = context.knobs.list<SwitchSizes>(
-    label: 'Switch Size',
-    options: [
-      ...SwitchSizes.values,
-    ],
-    initialOption: SwitchSizes.lg,
-  );
-  final SwitchColors color = context.knobs.list<SwitchColors>(
-    label: 'Active Color',
-    options: [
-      ...SwitchColors.values,
-    ],
-    initialOption: SwitchColors.defaultColor,
-  );
+@widgetbook.UseCase(name: 'default Switch Widget', type: CustomSwitchWidget)
+Widget buildDefaultSwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
-      size: size,
       showLabel: context.knobs.boolean(
         label: 'Show Label',
         initialValue: false,
@@ -34,7 +19,132 @@ Widget buildSwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: color,
+      activeColor: SwitchColors.defaultColor,
+      isDisabled: context.knobs.boolean(
+        label: 'is Disabled',
+        initialValue: false,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(name: 'primary Switch Widget', type: CustomSwitchWidget)
+Widget buildPrimarySwitchWidgetUseCase(BuildContext context) {
+  return Center(
+    child: CustomSwitchWidget(
+      showLabel: context.knobs.boolean(
+        label: 'Show Label',
+        initialValue: false,
+      ),
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
+      isSelected: context.knobs.boolean(
+        label: 'is Selected',
+        initialValue: true,
+      ),
+      activeColor: SwitchColors.primaryColor,
+      isDisabled: context.knobs.boolean(
+        label: 'is Disabled',
+        initialValue: false,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(name: 'secondary Switch Widget', type: CustomSwitchWidget)
+Widget buildSecondarySwitchWidgetUseCase(BuildContext context) {
+  return Center(
+    child: CustomSwitchWidget(
+      showLabel: context.knobs.boolean(
+        label: 'Show Label',
+        initialValue: false,
+      ),
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
+      isSelected: context.knobs.boolean(
+        label: 'is Selected',
+        initialValue: true,
+      ),
+      activeColor: SwitchColors.secondaryColor,
+      isDisabled: context.knobs.boolean(
+        label: 'is Disabled',
+        initialValue: false,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(name: 'danger Switch Widget', type: CustomSwitchWidget)
+Widget buildDangerSwitchWidgetUseCase(BuildContext context) {
+  return Center(
+    child: CustomSwitchWidget(
+      showLabel: context.knobs.boolean(
+        label: 'Show Label',
+        initialValue: false,
+      ),
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
+      isSelected: context.knobs.boolean(
+        label: 'is Selected',
+        initialValue: true,
+      ),
+      activeColor: SwitchColors.dangerColor,
+      isDisabled: context.knobs.boolean(
+        label: 'is Disabled',
+        initialValue: false,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(name: 'success Switch Widget', type: CustomSwitchWidget)
+Widget buildSuccessSwitchWidgetUseCase(BuildContext context) {
+  return Center(
+    child: CustomSwitchWidget(
+      showLabel: context.knobs.boolean(
+        label: 'Show Label',
+        initialValue: false,
+      ),
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
+      isSelected: context.knobs.boolean(
+        label: 'is Selected',
+        initialValue: true,
+      ),
+      activeColor: SwitchColors.successColor,
+      isDisabled: context.knobs.boolean(
+        label: 'is Disabled',
+        initialValue: false,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(name: 'warning Switch Widget', type: CustomSwitchWidget)
+Widget buildWarningSwitchWidgetUseCase(BuildContext context) {
+  return Center(
+    child: CustomSwitchWidget(
+      showLabel: context.knobs.boolean(
+        label: 'Show Label',
+        initialValue: false,
+      ),
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
+      isSelected: context.knobs.boolean(
+        label: 'is Selected',
+        initialValue: true,
+      ),
+      activeColor: SwitchColors.warningColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
