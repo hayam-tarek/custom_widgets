@@ -13,7 +13,7 @@ Widget buildDefaultSwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.defaultColor,
+        initialValue: SwitchColors.defaultColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
@@ -33,7 +33,7 @@ Widget buildPrimarySwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.primaryColor,
+        initialValue: SwitchColors.primaryColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
@@ -53,7 +53,7 @@ Widget buildSecondarySwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.secondaryColor,
+        initialValue: SwitchColors.secondaryColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
@@ -73,7 +73,7 @@ Widget buildDangerSwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.dangerColor,
+        initialValue: SwitchColors.dangerColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
@@ -93,7 +93,7 @@ Widget buildSuccessSwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.successColor,
+        initialValue: SwitchColors.successColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
@@ -113,7 +113,7 @@ Widget buildWarningSwitchWidgetUseCase(BuildContext context) {
       ),
       activeColor: context.knobs.color(
         label: 'Active Color',
-        initialValue: SwitchColor.warningColor,
+        initialValue: SwitchColors.warningColor,
       ),
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
