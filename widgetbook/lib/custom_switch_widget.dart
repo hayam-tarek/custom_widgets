@@ -7,6 +7,10 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 Widget buildDefaultSwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,
@@ -27,6 +31,10 @@ Widget buildDefaultSwitchWidgetUseCase(BuildContext context) {
 Widget buildPrimarySwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,
@@ -47,6 +55,10 @@ Widget buildPrimarySwitchWidgetUseCase(BuildContext context) {
 Widget buildSecondarySwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,
@@ -67,6 +79,10 @@ Widget buildSecondarySwitchWidgetUseCase(BuildContext context) {
 Widget buildDangerSwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,
@@ -87,6 +103,10 @@ Widget buildDangerSwitchWidgetUseCase(BuildContext context) {
 Widget buildSuccessSwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,
@@ -107,6 +127,10 @@ Widget buildSuccessSwitchWidgetUseCase(BuildContext context) {
 Widget buildWarningSwitchWidgetUseCase(BuildContext context) {
   return Center(
     child: CustomSwitchWidget(
+      showIcon: context.knobs.boolean(
+        label: 'Show Icon',
+        initialValue: false,
+      ),
       isSelected: context.knobs.boolean(
         label: 'is Selected',
         initialValue: true,

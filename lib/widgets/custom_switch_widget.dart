@@ -26,11 +26,17 @@ class CustomSwitchWidget extends StatefulWidget {
     required this.isSelected,
     required this.activeColor,
     this.isDisabled = false,
+    required this.showIcon,
+    this.activeIcon,
+    this.inActiveIcon,
   });
   final bool isSelected;
   final Color activeColor;
   // final SwitchColor activeColor;
   final bool isDisabled;
+  final bool showIcon;
+  final IconData? activeIcon;
+  final IconData? inActiveIcon;
 
   @override
   State<CustomSwitchWidget> createState() => _CustomSwitchWidgetState();
@@ -68,6 +74,21 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
       child: IgnorePointer(
         ignoring: widget.isDisabled,
         child: Switch(
+          thumbIcon: widget.showIcon
+              ? switchValue!
+                  ? const WidgetStatePropertyAll(
+                      Icon(
+                        Icons.sunny,
+                        color: Colors.black,
+                      ),
+                    )
+                  : const WidgetStatePropertyAll(
+                      Icon(
+                        Icons.nightlight,
+                        color: Colors.black,
+                      ),
+                    )
+              : null,
           value: switchValue!,
           thumbColor: WidgetStateProperty.all(Colors.white),
           activeTrackColor: widget.activeColor,
