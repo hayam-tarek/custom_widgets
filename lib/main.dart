@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/switch_lib.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,6 +20,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Demo'),
+        ),
+        body: const Center(
+          child: CustomSwitchWidget(
+            isSelected: true,
+          ),
         ),
       ),
     );
