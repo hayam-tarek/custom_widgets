@@ -21,6 +21,10 @@ Widget buildSwitchWidgetUseCase(BuildContext context) {
   );
   return Center(
     child: CustomSwitchWidget(
+      label: context.knobs.string(
+        label: 'Label',
+        initialValue: 'Label',
+      ),
       size: size,
       showLabel: context.knobs.boolean(
         label: 'Show Label',
