@@ -5,13 +5,14 @@ class CustomSwitchWidget extends StatefulWidget {
   const CustomSwitchWidget({
     super.key,
     required this.isSelected,
-    required this.activeColor,
+    this.activeColor = SwitchColors.defaultColor,
     this.isDisabled = false,
     this.showIcon = false,
     this.activeIcon = Icons.sunny,
     this.inActiveIcon = Icons.nightlight,
     this.showLabel = false,
     this.label = 'Bluetooth',
+    this.size = SwitchSizes.lg,
   });
   final bool isSelected;
   // final Color activeColor;
@@ -22,6 +23,7 @@ class CustomSwitchWidget extends StatefulWidget {
   final IconData inActiveIcon;
   final bool showLabel;
   final String label;
+  final SwitchSizes size;
 
   @override
   State<CustomSwitchWidget> createState() => _CustomSwitchWidgetState();
@@ -43,35 +45,39 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
       child: IgnorePointer(
         ignoring: widget.isDisabled,
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Switch(
-              thumbIcon: widget.showIcon
-                  ? switchValue!
-                      ? WidgetStatePropertyAll(
-                          Icon(
-                            widget.activeIcon,
-                            color: Colors.black,
-                          ),
-                        )
-                      : WidgetStatePropertyAll(
-                          Icon(
-                            widget.inActiveIcon,
-                            color: Colors.black,
-                          ),
-                        )
-                  : null,
-              value: switchValue!,
-              thumbColor: WidgetStateProperty.all(Colors.white),
-              // activeTrackColor: widget.activeColor,
-              activeTrackColor: SwitchColor.getColor(widget.activeColor),
-              inactiveTrackColor: const Color(0xff3F3F46),
-              trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
-              onChanged: (val) {
-                setState(() {
-                  switchValue = val;
-                });
-              },
+            Transform.scale(
+              scale: SwitchSize.getScaleFactor(widget.size),
+              child: Switch(
+                thumbIcon: widget.showIcon
+                    ? switchValue!
+                        ? WidgetStatePropertyAll(
+                            Icon(
+                              widget.activeIcon,
+                              color: Colors.black,
+                            ),
+                          )
+                        : WidgetStatePropertyAll(
+                            Icon(
+                              widget.inActiveIcon,
+                              color: Colors.black,
+                            ),
+                          )
+                    : null,
+                value: switchValue!,
+                thumbColor: WidgetStateProperty.all(Colors.white),
+                // activeTrackColor: widget.activeColor,
+                activeTrackColor: SwitchColor.getColor(widget.activeColor),
+                inactiveTrackColor: const Color(0xff3F3F46),
+                trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+                onChanged: (val) {
+                  setState(() {
+                    switchValue = val;
+                  });
+                },
+              ),
             ),
             if (widget.showLabel)
               Text(
