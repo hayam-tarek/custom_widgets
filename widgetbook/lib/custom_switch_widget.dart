@@ -1,4 +1,4 @@
-import 'package:custom_widgets/widgets/custom_switch_widget.dart';
+import 'package:custom_widgets/widgets/switch_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -19,10 +19,7 @@ Widget buildDefaultSwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.defaultColor,
-      ),
+      activeColor: SwitchColors.defaultColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
@@ -47,10 +44,7 @@ Widget buildPrimarySwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.primaryColor,
-      ),
+      activeColor: SwitchColors.primaryColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
@@ -75,10 +69,7 @@ Widget buildSecondarySwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.secondaryColor,
-      ),
+      activeColor: SwitchColors.secondaryColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
@@ -103,10 +94,7 @@ Widget buildDangerSwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.dangerColor,
-      ),
+      activeColor: SwitchColors.dangerColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
@@ -131,10 +119,7 @@ Widget buildSuccessSwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.successColor,
-      ),
+      activeColor: SwitchColors.successColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
@@ -159,10 +144,7 @@ Widget buildWarningSwitchWidgetUseCase(BuildContext context) {
         label: 'is Selected',
         initialValue: true,
       ),
-      activeColor: context.knobs.color(
-        label: 'Active Color',
-        initialValue: SwitchColors.warningColor,
-      ),
+      activeColor: SwitchColors.warningColor,
       isDisabled: context.knobs.boolean(
         label: 'is Disabled',
         initialValue: false,
