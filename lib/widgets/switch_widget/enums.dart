@@ -1,4 +1,4 @@
-enum SwitchColors {
+enum SwitchColor {
   defaultColor,
   primaryColor,
   secondaryColor,
@@ -7,7 +7,7 @@ enum SwitchColors {
   warningColor,
 }
 
-enum SwitchSizes {
+enum SwitchSize {
   sm,
   md,
   lg,

@@ -5,19 +5,19 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Switch Widget', type: CustomSwitchWidget)
 Widget buildSwitchWidgetUseCase(BuildContext context) {
-  final SwitchSizes size = context.knobs.list<SwitchSizes>(
+  final SwitchSize size = context.knobs.list<SwitchSize>(
     label: 'Switch Size',
     options: [
-      ...SwitchSizes.values,
+      ...SwitchSize.values,
     ],
-    initialOption: SwitchSizes.lg,
+    initialOption: SwitchSize.lg,
   );
-  final SwitchColors color = context.knobs.list<SwitchColors>(
+  final SwitchColor color = context.knobs.list<SwitchColor>(
     label: 'Active Color',
     options: [
-      ...SwitchColors.values,
+      ...SwitchColor.values,
     ],
-    initialOption: SwitchColors.defaultColor,
+    initialOption: SwitchColor.defaultColor,
   );
   return Center(
     child: CustomSwitchWidget(

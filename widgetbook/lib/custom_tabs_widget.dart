@@ -19,12 +19,12 @@ Widget buildTabsWidgetUseCase(BuildContext context) {
       size: context.knobs.list(
         label: 'size',
         options: [...TabsSize.values],
-        initialOption: TabsSize.md,
+        initialOption: TabsSize.sm,
       ),
       radius: context.knobs.list(
         label: 'radius',
         options: [...TabsRadius.values],
-        initialOption: TabsRadius.md,
+        initialOption: TabsRadius.none,
       ),
     ),
   );
