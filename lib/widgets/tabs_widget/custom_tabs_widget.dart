@@ -30,7 +30,15 @@ class _CustomTabsWidgetState extends State<CustomTabsWidget> {
         opacity: widget.isDisabled ? 0.5 : 1.0,
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0xff27272A),
+            border: widget.variant == TabsVariant.bordered
+                ? Border.all(
+                    width: 2,
+                    color: const Color(0xff3F3F46),
+                  )
+                : null,
+            color: widget.variant == TabsVariant.solid
+                ? const Color(0xff27272A)
+                : null,
             borderRadius: BorderRadius.circular(
               TabsHelper.getTabsRadius(widget.radius),
             ),
@@ -41,6 +49,7 @@ class _CustomTabsWidgetState extends State<CustomTabsWidget> {
               children: List.generate(
                 tabs.length,
                 (index) => TabsButton(
+                  variant: widget.variant,
                   fontSize: TabsHelper.getTabsSize(widget.size),
                   label: tabs[index],
                   isSelected: selectedIndex == index,
@@ -68,12 +77,14 @@ class TabsButton extends StatelessWidget {
     required this.isSelected,
     required this.fontSize,
     required this.radius,
+    required this.variant,
   });
   final void Function()? onPressed;
   final String label;
   final bool isSelected;
   final double fontSize;
   final double radius;
+  final TabsVariant variant;
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +94,22 @@ class TabsButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xff3F3F46) : null,
-            borderRadius: BorderRadius.circular(radius),
+            border: variant == TabsVariant.underlined && isSelected
+                ? const Border(
+                    bottom: BorderSide(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  )
+                : null,
+            color: isSelected
+                ? variant != TabsVariant.underlined
+                    ? const Color(0xff3F3F46)
+                    : null
+                : null,
+            borderRadius: variant != TabsVariant.underlined
+                ? BorderRadius.circular(radius)
+                : null,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
