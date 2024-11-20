@@ -1,4 +1,5 @@
 import 'package:custom_widgets/widgets/switch_lib.dart';
+import 'package:custom_widgets/widgets/switch_widget/switch_helper.dart';
 import 'package:flutter/material.dart';
 
 class CustomSwitchWidget extends StatefulWidget {
@@ -49,7 +50,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Transform.scale(
-              scale: SwitchSize.getScaleFactor(widget.size),
+              scale: SwitchHelper.getScaleFactor(widget.size),
               child: Switch(
                 thumbIcon: widget.showIcon
                     ? switchValue!
@@ -69,7 +70,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
                 value: switchValue!,
                 thumbColor: WidgetStateProperty.all(Colors.white),
                 // activeTrackColor: widget.activeColor,
-                activeTrackColor: SwitchColor.getColor(widget.activeColor),
+                activeTrackColor: SwitchHelper.getColor(widget.activeColor),
                 inactiveTrackColor: const Color(0xff3F3F46),
                 trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
                 onChanged: (val) {
