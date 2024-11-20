@@ -8,19 +8,28 @@ class CustomTabsWidget extends StatefulWidget {
     required this.isDisabled,
     required this.size,
     required this.radius,
+    required this.tabsLabels,
+    required this.initialIndex,
+    this.onPressed,
   });
   final TabsVariant variant;
   final bool isDisabled;
   final TabsSize size;
   final TabsRadius radius;
-
+  final List<String> tabsLabels;
+  final int initialIndex;
+  final void Function(int index)? onPressed;
   @override
   State<CustomTabsWidget> createState() => _CustomTabsWidgetState();
 }
 
 class _CustomTabsWidgetState extends State<CustomTabsWidget> {
-  int selectedIndex = 0;
-  List tabs = ['World', 'N.Y', 'Business', 'Arts', 'Science'];
+  late int selectedIndex;
+  @override
+  void initState() {
+    selectedIndex = widget.initialIndex;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +56,17 @@ class _CustomTabsWidgetState extends State<CustomTabsWidget> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List.generate(
-                tabs.length,
+                widget.tabsLabels.length,
                 (index) => TabsButton(
                   variant: widget.variant,
                   fontSize: TabsHelper.getTabsSize(widget.size),
-                  label: tabs[index],
+                  label: widget.tabsLabels[index],
                   isSelected: selectedIndex == index,
                   onPressed: () {
                     setState(() {
                       selectedIndex = index;
                     });
+                    widget.onPressed!(index);
                   },
                   radius: TabsHelper.getTabsRadius(widget.radius),
                 ),
