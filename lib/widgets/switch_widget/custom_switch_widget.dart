@@ -6,25 +6,25 @@ class CustomSwitchWidget extends StatefulWidget {
   const CustomSwitchWidget({
     super.key,
     required this.isSelected,
-    this.activeColor = SwitchColors.defaultColor,
+    this.activeColor = SwitchColor.defaultColor,
     this.isDisabled = false,
     this.showIcon = false,
     this.activeIcon = Icons.sunny,
     this.inActiveIcon = Icons.nightlight,
     this.showLabel = false,
     this.label = 'Bluetooth',
-    this.size = SwitchSizes.lg,
+    this.size = SwitchSize.lg,
   });
   final bool isSelected;
   // final Color activeColor;
-  final SwitchColors activeColor;
+  final SwitchColor activeColor;
   final bool isDisabled;
   final bool showIcon;
   final IconData activeIcon;
   final IconData inActiveIcon;
   final bool showLabel;
   final String label;
-  final SwitchSizes size;
+  final SwitchSize size;
 
   @override
   State<CustomSwitchWidget> createState() => _CustomSwitchWidgetState();
