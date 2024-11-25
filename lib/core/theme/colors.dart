@@ -11,3 +11,4 @@ abstract class AppColors {
   static const baseSuccess = Color(0xff17C964);
   static const baseWarning = Color(0xffF5A524);
 }
+//
