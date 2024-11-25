@@ -1,3 +1,4 @@
+import 'package:custom_widgets/core/theme/colors.dart';
 import 'package:custom_widgets/widgets/tabs_lib.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ class CustomTabsWidget extends StatefulWidget {
     required this.tabsLabels,
     required this.initialIndex,
     this.onPressed,
+    this.backgroundColor = AppColors.baseDefault100,
+    this.tabColor,
+    this.borderColor = AppColors.baseDefault200,
   });
   final TabsVariant variant;
   final bool isDisabled;
@@ -19,6 +23,9 @@ class CustomTabsWidget extends StatefulWidget {
   final List<String> tabsLabels;
   final int initialIndex;
   final void Function(int index)? onPressed;
+  final Color backgroundColor;
+  final Color? tabColor;
+  final Color borderColor;
   @override
   State<CustomTabsWidget> createState() => _CustomTabsWidgetState();
 }
@@ -42,11 +49,11 @@ class _CustomTabsWidgetState extends State<CustomTabsWidget> {
             border: widget.variant == TabsVariant.bordered
                 ? Border.all(
                     width: 2,
-                    color: const Color(0xff3F3F46),
+                    color: widget.borderColor,
                   )
                 : null,
             color: widget.variant == TabsVariant.solid
-                ? const Color(0xff27272A)
+                ? widget.backgroundColor
                 : null,
             borderRadius: BorderRadius.circular(
               TabsHelper.getTabsRadius(widget.radius),
@@ -62,6 +69,7 @@ class _CustomTabsWidgetState extends State<CustomTabsWidget> {
                   fontSize: TabsHelper.getTabsSize(widget.size),
                   label: widget.tabsLabels[index],
                   isSelected: selectedIndex == index,
+                  tabColor: widget.tabColor,
                   onPressed: () {
                     setState(() {
                       selectedIndex = index;
@@ -88,6 +96,7 @@ class TabsButton extends StatelessWidget {
     required this.fontSize,
     required this.radius,
     required this.variant,
+    this.tabColor,
   });
   final void Function()? onPressed;
   final String label;
@@ -95,6 +104,7 @@ class TabsButton extends StatelessWidget {
   final double fontSize;
   final double radius;
   final TabsVariant variant;
+  final Color? tabColor;
 
   @override
   Widget build(BuildContext context) {
@@ -105,16 +115,16 @@ class TabsButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             border: variant == TabsVariant.underlined && isSelected
-                ? const Border(
+                ? Border(
                     bottom: BorderSide(
-                      color: Colors.white,
+                      color: tabColor ?? Colors.white,
                       width: 2,
                     ),
                   )
                 : null,
             color: isSelected
                 ? variant != TabsVariant.underlined
-                    ? const Color(0xff3F3F46)
+                    ? tabColor ?? AppColors.baseForceDark
                     : null
                 : null,
             borderRadius: variant != TabsVariant.underlined
@@ -126,7 +136,11 @@ class TabsButton extends StatelessWidget {
             child: Text(
               label,
               style: TextStyle(
-                color: isSelected ? Colors.white : const Color(0xffA1A1AA),
+                color: isSelected
+                    ? variant == TabsVariant.underlined
+                        ? tabColor ?? AppColors.baseForceDark
+                        : Colors.white
+                    : AppColors.baseDefault500,
                 fontSize: fontSize,
                 fontWeight: FontWeight.w400,
               ),

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:custom_widgets/widgets/switch_lib.dart';
 import 'package:custom_widgets/widgets/tabs_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -10,6 +11,25 @@ Widget buildTabsWidgetUseCase(BuildContext context) {
   List<String> tabsLabels = ['World', 'N.Y', 'Business', 'Arts', 'Science'];
   return Center(
     child: CustomTabsWidget(
+      backgroundColor: context.knobs.color(
+        label: 'Background Color',
+        initialValue: AppColors.baseDefault100,
+      ),
+      borderColor: context.knobs.color(
+        label: 'Border Color',
+        initialValue: AppColors.baseDefault200,
+      ),
+      tabColor: context.knobs.list(
+        label: 'Tab Color',
+        options: [
+          AppColors.baseForceDark,
+          AppColors.basePrimary,
+          AppColors.baseSecondary,
+          AppColors.baseDanger,
+          AppColors.baseSuccess,
+          AppColors.baseWarning,
+        ],
+      ),
       tabsLabels: tabsLabels,
       initialIndex: context.knobs.int.slider(
         label: 'initial Index',
