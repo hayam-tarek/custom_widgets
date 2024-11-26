@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:custom_widgets/widgets/switch_lib.dart';
+import 'package:custom_widgets/core/theme/colors.dart';
 import 'package:custom_widgets/widgets/tabs_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
